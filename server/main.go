@@ -16,16 +16,16 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
+type helloWorldRequest struct {
+	Hello string `json:"hello"`
+}
+
 func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte("Unable to read body"))
 		return
-	}
-
-	type helloWorldRequest struct {
-		Hello string `json:"hello"`
 	}
 
 	req := &helloWorldRequest{}
@@ -36,10 +36,7 @@ func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	resp := make(map[string]interface{})
-	resp["yourHello"] = req.Hello
+	log.Printf("Request received %+v", req)
 
-	out, _ := json.Marshal(resp)
-
-	w.Write(out)
+	w.WriteHeader(http.StatusOK)
 }
