@@ -36,12 +36,13 @@ Insert JavaScript into the index.html (supplied) that captures and posts data ev
 
 ## Backend (Go)
 
-We've supplied a starter server in the /server directory. You can run the server with `go run main.go`. It will have to be adapted to:
+The Backend must to:
 
-1. Accept POST requests in JSON format similar to those specified above
-2. Map the JSON requests to relevant sections of the data struct (specified below)
-3. Print the struct for each stage of its construction
-4. Also print the struct when it is complete (i.e. when the form submit button has been clicked)
+1. Create a Server
+2. Accept POST requests in JSON format similar to those specified above
+3. Map the JSON requests to relevant sections of the data struct (specified below)
+4. Print the struct for each stage of its construction
+5. Also print the struct when it is complete (i.e. when the form submit button has been clicked)
 
 ### Go Struct
 ```
