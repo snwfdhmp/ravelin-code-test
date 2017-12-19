@@ -14,7 +14,7 @@ Insert JavaScript into the index.html (supplied) that captures and posts data ev
   - time taken from the 1st character typed to clicking the submit button
 
 ### Example JSON Requests
-```
+```javascript
 {
   "eventType": "copyAndPaste",
   "websiteUrl": "https://ravelin.com",
