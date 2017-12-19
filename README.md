@@ -45,7 +45,7 @@ The Backend must to:
 5. Also print the struct when it is complete (i.e. when the form submit button has been clicked)
 
 ### Go Struct
-```
+```go
 type Data struct {
 	WebsiteUrl         string
 	SessionId          string
