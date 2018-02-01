@@ -2,7 +2,7 @@ Ravelin Code Test
 =================
 
 ## Summary
-We need an HTTP server that will accept any POST request (JSON) from muliple clients' websites. Each request forms part of a struct (for that particular visitor) that will be printed to the terminal when the struct is fully complete. 
+We need an HTTP server that will accept any POST request (JSON) from muliple clients' websites. Each request forms part of a struct (for that particular visitor) that will be printed to the terminal when the struct is fully complete.
 
 For the JS part of the test please feel free to use any libraries that may help you **but please only use the Go standard library for the backend**.
 
@@ -14,7 +14,7 @@ Insert JavaScript into the index.html (supplied) that captures and posts data ev
   - time taken from the 1st character typed to clicking the submit button
 
 ### Example JSON Requests
-```javascript
+```
 {
   "eventType": "copyAndPaste",
   "websiteUrl": "https://ravelin.com",
@@ -60,7 +60,3 @@ type Dimension struct {
 	Height string
 }
 ```
-
-
-
-
