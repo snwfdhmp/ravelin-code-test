@@ -39,3 +39,6 @@ I handled the different events by creating different routes
 Thes routes are in charge of building the struct for the good client depending of the websiteURL and the sessionId
 
 Memory optimization is made by using pointers instead of storing directly the objects in the map
+
+### Tests
+I could test the backend thanks to [Postman](https://www.getpostman.com/) avalaible in the `tests` folder.

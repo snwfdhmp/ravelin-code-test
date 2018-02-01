@@ -1,0 +1,394 @@
+{
+	"id": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+	"name": "Ravelin",
+	"description": "Tests ravelin code test server",
+	"order": [
+		"2c7657be-6924-73ab-8ecf-0785739acba2",
+		"37f6ec9c-8849-7428-a4e9-462d5ba9a23b",
+		"ba5dfe6f-1a9e-4f80-48d0-7687f75077a3",
+		"d6d122e2-95d1-0cb9-ebb3-0318107201bf",
+		"6a0c5eb7-39e1-009b-e2e7-426e56a8f6fe",
+		"a405bc18-0a62-e8fb-78fc-5e1a2895fd67",
+		"01709d85-db8e-a42e-bdfb-b7513e10fdd1",
+		"ab16cea1-20ff-e877-c9cf-5b6b643bb7cc",
+		"44e77c53-e778-0a71-0fab-837d4f0efa88",
+		"8ad1a91f-fd5b-6d85-e1e2-9cb77b27c3bc",
+		"0cc3bb92-1acb-e067-bcaa-2790a0efd5dc",
+		"6c44d022-b6de-c007-9caf-79139e849045"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1517512866306,
+	"owner": "3342479",
+	"public": false,
+	"events": [],
+	"variables": [],
+	"auth": null,
+	"requests": [
+		{
+			"id": "01709d85-db8e-a42e-bdfb-b7513e10fdd1",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/resize",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1517513218262,
+			"name": "user2resize",
+			"description": "",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://ravelin.com\",\n\t\"sessionId\": \"123-123-125\",\n\t\"resizeFrom\": {\n\t\t\"width\": \"741\",\n\t\t\"heigth\": \"147\"\n\t},\n\t\"resizeTo\": {\n\t\t\"width\": \"852\",\n\t\t\"heigth\": \"258\"\n\t}\n}"
+		},
+		{
+			"id": "0cc3bb92-1acb-e067-bcaa-2790a0efd5dc",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/resize",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1517513465147,
+			"name": "user3resize",
+			"description": "",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://example.com\",\n\t\"sessionId\": \"123-123-125\",\n\t\"resizeFrom\": {\n\t\t\"width\": \"956\",\n\t\t\"heigth\": \"658\"\n\t},\n\t\"resizeTo\": {\n\t\t\"width\": \"745\",\n\t\t\"heigth\": \"258\"\n\t}\n}"
+		},
+		{
+			"id": "2c7657be-6924-73ab-8ecf-0785739acba2",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/new",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1517512945309,
+			"name": "newuser1",
+			"description": "",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://ravelin.com\",\n\t\"sessionId\": \"123-123-123123123\"\n}"
+		},
+		{
+			"id": "37f6ec9c-8849-7428-a4e9-462d5ba9a23b",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/copyandpaste",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "POST",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"data": [],
+			"dataMode": "raw",
+			"name": "user1copyandpaste",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1517513027096,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://ravelin.com\",\n\t\"sessionId\": \"123-123-123123123\",\n\t\"eventType\": \"copyAndPaste\",\n\t\"paste\": true,\n\t\"formId\": \"passwd\"\n}"
+		},
+		{
+			"id": "44e77c53-e778-0a71-0fab-837d4f0efa88",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/new",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1517513408635,
+			"name": "newuser3",
+			"description": "",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://example.com\",\n\t\"sessionId\": \"123-123-125\"\n}"
+		},
+		{
+			"id": "6a0c5eb7-39e1-009b-e2e7-426e56a8f6fe",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/new",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "POST",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"data": [],
+			"dataMode": "raw",
+			"name": "newuser2",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1517512993231,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://ravelin.com\",\n\t\"sessionId\": \"123-123-125\"\n}"
+		},
+		{
+			"id": "6c44d022-b6de-c007-9caf-79139e849045",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/submit",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1517513494886,
+			"name": "user2submit copy",
+			"description": "",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://example.com\",\n\t\"sessionId\": \"123-123-125\",\n\t\"eventType\": \"timeTaken\",\n\t\"time\": 35\t\n}"
+		},
+		{
+			"id": "8ad1a91f-fd5b-6d85-e1e2-9cb77b27c3bc",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/copyandpaste",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1517513550847,
+			"name": "user3copyandpaste",
+			"description": "",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://example.com\",\n\t\"sessionId\": \"123-123-125\",\n\t\"eventType\": \"copyAndPaste\",\n\t\"paste\": false,\n\t\"formId\": \"inputCardNumber\"\n}"
+		},
+		{
+			"id": "a405bc18-0a62-e8fb-78fc-5e1a2895fd67",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/copyandpaste",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "POST",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"data": [],
+			"dataMode": "raw",
+			"name": "user2copyandpaste",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1517513166186,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://ravelin.com\",\n\t\"sessionId\": \"123-123-125\",\n\t\"eventType\": \"copyAndPaste\",\n\t\"paste\": false,\n\t\"formId\": \"inputEmail\"\n}"
+		},
+		{
+			"id": "ab16cea1-20ff-e877-c9cf-5b6b643bb7cc",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/submit",
+			"queryParams": [],
+			"events": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"auth": null,
+			"time": 1517513340584,
+			"name": "user2submit",
+			"description": "",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://ravelin.com\",\n\t\"sessionId\": \"123-123-125\",\n\t\"eventType\": \"timeTaken\",\n\t\"time\": 75\t\n}"
+		},
+		{
+			"id": "ba5dfe6f-1a9e-4f80-48d0-7687f75077a3",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/resize",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "POST",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"data": [],
+			"dataMode": "raw",
+			"name": "user1resize",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1517513074431,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://ravelin.com\",\n\t\"sessionId\": \"123-123-123123123\",\n\t\"resizeFrom\": {\n\t\t\"width\": \"789\",\n\t\t\"heigth\": \"987\"\n\t},\n\t\"resizeTo\": {\n\t\t\"width\": \"456\",\n\t\t\"heigth\": \"654\"\n\t}\n}"
+		},
+		{
+			"id": "d6d122e2-95d1-0cb9-ebb3-0318107201bf",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/submit",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "POST",
+			"collectionId": "8ec29cda-44c4-b779-4c92-219e25a2af10",
+			"data": [],
+			"dataMode": "raw",
+			"name": "user1submit",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1517513089289,
+			"version": 2,
+			"responses": [],
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"websiteURL\": \"http://ravelin.com\",\n\t\"sessionId\": \"123-123-123123123\",\n\t\"eventType\": \"timeTaken\",\n\t\"time\": 75\t\n}"
+		}
+	]
+}

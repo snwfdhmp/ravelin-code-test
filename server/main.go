@@ -242,6 +242,7 @@ ResizeFrom: Width: {{.ResizeFrom.Width}}, Height: {{.ResizeFrom.Height}}
 ResizeTo: Width: {{.ResizeTo.Width}}, Height: {{.ResizeTo.Height}} {{range $key, $value := .CopyAndPaste}}
 CopyAndPaste: FormId: {{$key}}, Paste: $value}} {{end}}
 FormCompletionTime: {{.FormCompletionTime}}
+
 `
 	tmpl, err := template.New("").Parse(output)
 	if err != nil {
