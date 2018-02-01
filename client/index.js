@@ -15,7 +15,6 @@ var req = {
 var timeout = false;
 
 $(document).ready(function() {
-  console.log(uuid);
   $(window).resize(function() {
     rtime = new Date();
     if (timeout === false) {
@@ -89,12 +88,12 @@ function submitData() {
 }
 
 function sendData(route) {
-  console.log(req);
   $.ajax({
     url: 'http://localhost:8080/' + route,
     type: 'POST',
     dataType: 'application/json',
-    data: JSON.stringify({
+    data: JSON.stringify(
+    {
         "websiteURL": req.url,
         "sessionId": req.id.toString(),
         "eventType": (req.eventType) ? req.eventType : null,
@@ -109,7 +108,8 @@ function sendData(route) {
           "width": actualWidth.toString()
         } : null,
         "time": (req.eventType == 'timeTaken') ? req.interval : null
-      })
+     }
+  )
   })
   .done(function() {
     console.log("success");
@@ -120,5 +120,4 @@ function sendData(route) {
   .always(function() {
     console.log("complete");
   });
-
 }

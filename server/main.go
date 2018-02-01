@@ -6,9 +6,11 @@ package main
 
 import (
 	"encoding/json"
+	"html/template"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -17,11 +19,11 @@ var (
 	Version = "0.0.1"
 )
 
-type websiteData map[string]Data //map[sess]Data
-
 const (
 	PORT = ":8080"
 )
+
+type websiteData map[string]Data //map[sess]Data
 
 type Data struct {
 	WebsiteURL         string
@@ -51,6 +53,7 @@ func main() {
 	log.Println(http.ListenAndServe(PORT, MiddleWare(mux)))
 }
 
+// MiddleWare
 func MiddleWare(m http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != "POST" {
@@ -61,7 +64,7 @@ func MiddleWare(m http.Handler) http.Handler {
 	})
 }
 
-// Handler New
+// HandlerNew Handler for a new connexion
 func HandlerNew(w http.ResponseWriter, r *http.Request) {
 	resp := getResp(w, r)
 
@@ -90,7 +93,7 @@ func HandlerNew(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// Paste Handler
+// Handlerpaste handler for the copyAndPaste event
 func Handlerpaste(w http.ResponseWriter, r *http.Request) {
 	resp := getResp(w, r)
 	url := resp["websiteURL"].(string)
@@ -129,7 +132,7 @@ func Handlerpaste(w http.ResponseWriter, r *http.Request) {
 	log.Println(sessData)
 }
 
-// Resize Handler
+// HandlerResize handler for the resize event
 func HandlerResize(w http.ResponseWriter, r *http.Request) {
 	resp := getResp(w, r)
 	url := resp["websiteURL"].(string)
@@ -168,7 +171,7 @@ func HandlerResize(w http.ResponseWriter, r *http.Request) {
 	log.Println(sessData)
 }
 
-// Submit Handler
+// HandlerSubmit handler called when submit button is clicked
 func HandlerSubmit(w http.ResponseWriter, r *http.Request) {
 	resp := getResp(w, r)
 	url := resp["websiteURL"].(string)
@@ -194,6 +197,7 @@ func HandlerSubmit(w http.ResponseWriter, r *http.Request) {
 	Clients[url] = wData
 
 	log.Println(sessData)
+	Print(sessData)
 }
 
 // Returns the json response as a map
@@ -224,4 +228,24 @@ func getDimension(i interface{}) (d Dimension, err error) {
 		log.Println(err)
 	}
 	return d, err
+}
+
+// Print prints a Data in the console
+func Print(d Data) {
+	output :=
+		`
+Structure for user {{.SessionID}} from {{.WebsiteURL}}
+
+WebsiteURL: {{.WebsiteURL}}
+SessionId: {{.SessionID}}
+ResizeFrom: Width: {{.ResizeFrom.Width}}, Height: {{.ResizeFrom.Height}}
+ResizeTo: Width: {{.ResizeTo.Width}}, Height: {{.ResizeTo.Height}} {{range $key, $value := .CopyAndPaste}}
+CopyAndPaste: FormId: {{$key}}, Paste: $value}} {{end}}
+FormCompletionTime: {{.FormCompletionTime}}
+`
+	tmpl, err := template.New("").Parse(output)
+	if err != nil {
+		log.Println(err)
+	}
+	tmpl.Execute(os.Stdout, d)
 }
