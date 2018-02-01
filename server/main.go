@@ -71,14 +71,14 @@ func HandlerNew(w http.ResponseWriter, r *http.Request) {
 	if _, ok := Clients[url]; !ok {
 		c := make(websiteData)
 		Clients[url] = &c
+	}
 
-		wData, ok := Clients[url]
-		if !ok {
-			return
-		}
+	wData, ok := Clients[url]
+	if !ok {
+		return
+	}
 
-		sessData := (*wData)[sess]
-
+	if sessData, ok := (*wData)[sess]; !ok {
 		sessData.WebsiteURL = url
 		sessData.SessionID = sess
 
@@ -110,11 +110,13 @@ func Handlerpaste(w http.ResponseWriter, r *http.Request) {
 
 	wData, ok := Clients[url]
 	if !ok {
+		log.Println("Clients[", url, "] not found")
 		return
 	}
 
-	sessData := (*wData)[sess]
+	sessData, ok := (*wData)[sess]
 	if !ok {
+		log.Println("sessData:", sessData, "not found")
 		return
 	}
 
@@ -147,11 +149,13 @@ func HandlerResize(w http.ResponseWriter, r *http.Request) {
 
 	wData, ok := Clients[url]
 	if !ok {
+		log.Println("Clients[", url, "] not found")
 		return
 	}
 
-	sessData := (*wData)[sess]
+	sessData, ok := (*wData)[sess]
 	if !ok {
+		log.Println("sessData:", sessData, "not found")
 		return
 	}
 
@@ -174,11 +178,13 @@ func HandlerSubmit(w http.ResponseWriter, r *http.Request) {
 
 	wData, ok := Clients[url]
 	if !ok {
+		log.Println("Clients[", url, "] not found")
 		return
 	}
 
 	sessData, ok := (*wData)[sess]
 	if !ok {
+		log.Println("sessData:", sessData, "not found")
 		return
 	}
 

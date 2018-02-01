@@ -96,21 +96,20 @@ function sendData(route) {
     dataType: 'application/json',
     data: JSON.stringify({
         "websiteURL": req.url,
-        "sessionId": req.id.toString()
-
-      // eventType: (req.eventType) ? req.eventType : null,
-      // paste: (req.eventType == 'copyAndPaste') ? req.pasted : null,
-      // formId: (req.eventType == 'copyAndPaste') ? req.formId : null,
-      // resizeFrom: (req.eventType == 'resize') ? {
-      //   height: originalHeight.toString(),
-      //   width: originalWidth.toString()
-      // } : null,
-      // resizeTo: (req.eventType == 'resize') ? {
-      //   height: acutalHeight.toString(),
-      //   width: actualWidth.toString()
-      // } : null,
-      // time: (req.eventType == 'timeTaken') ? req.interval : null
-    })
+        "sessionId": req.id.toString(),
+        "eventType": (req.eventType) ? req.eventType : null,
+        "paste": (req.eventType == 'copyAndPaste') ? req.pasted : null,
+        "formId": (req.eventType == 'copyAndPaste') ? req.formId : null,
+        "resizeFrom": (req.eventType == 'resize') ? {
+          "height": originalHeight.toString(),
+          "width": originalWidth.toString()
+        } : null,
+        "resizeTo": (req.eventType == 'resize') ? {
+          "height": acutalHeight.toString(),
+          "width": actualWidth.toString()
+        } : null,
+        "time": (req.eventType == 'timeTaken') ? req.interval : null
+      })
   })
   .done(function() {
     console.log("success");
