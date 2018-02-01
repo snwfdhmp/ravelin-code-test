@@ -64,12 +64,30 @@ func MiddleWare(m http.Handler) http.Handler {
 // Handler New
 func HandlerNew(w http.ResponseWriter, r *http.Request) {
 	resp := getResp(w, r)
+
 	url := resp["websiteURL"].(string)
+	sess := resp["sessionId"].(string)
 
 	if _, ok := Clients[url]; !ok {
-		Clients[url] = new(websiteData)
+		c := make(websiteData)
+		Clients[url] = &c
+
+		wData, ok := Clients[url]
+		if !ok {
+			return
+		}
+
+		sessData := (*wData)[sess]
+
+		sessData.WebsiteURL = url
+		sessData.SessionID = sess
+
+		(*wData)[sess] = sessData
+		Clients[url] = wData
+
+		log.Println("Connexion from", url)
+		log.Println(sessData)
 	}
-	log.Println("Connexion from", url)
 }
 
 // Paste Handler
@@ -95,13 +113,18 @@ func Handlerpaste(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	sesData := (*wData)[sess]
+	sessData := (*wData)[sess]
 	if !ok {
 		return
 	}
 
-	sesData.CopyAndPaste[formID] = paste
-	log.Println((*Clients[url])[sess])
+	sessData.CopyAndPaste = make(map[string]bool)
+	sessData.CopyAndPaste[formID] = paste
+
+	(*wData)[sess] = sessData
+	Clients[url] = wData
+
+	log.Println(sessData)
 }
 
 // Resize Handler
@@ -113,11 +136,13 @@ func HandlerResize(w http.ResponseWriter, r *http.Request) {
 	resizeFrom, err := getDimension(resp["resizeFrom"])
 	if err != nil {
 		log.Println("Original size is missing")
+		return
 	}
 
 	resizeTo, err := getDimension(resp["resizeTo"])
 	if err != nil {
 		log.Println("Actual size is missing")
+		return
 	}
 
 	wData, ok := Clients[url]
@@ -125,13 +150,18 @@ func HandlerResize(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	sesData := (*wData)[sess]
+	sessData := (*wData)[sess]
 	if !ok {
 		return
 	}
 
-	sesData.ResizeTo = resizeTo
-	sesData.ResizeFrom = resizeFrom
+	sessData.ResizeTo = resizeTo
+	sessData.ResizeFrom = resizeFrom
+
+	(*wData)[sess] = sessData
+	Clients[url] = wData
+
+	log.Println(sessData)
 }
 
 // Submit Handler
@@ -153,6 +183,11 @@ func HandlerSubmit(w http.ResponseWriter, r *http.Request) {
 	}
 
 	sessData.FormCompletionTime = time
+
+	(*wData)[sess] = sessData
+	Clients[url] = wData
+
+	log.Println(sessData)
 }
 
 // Returns the json response as a map

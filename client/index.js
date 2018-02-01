@@ -9,14 +9,13 @@ var actualWidth = $(window).width();
 var rtime;
 let uuid = uuidv4()
 var req = {
-  url: window.location,
+  url: window.location.href,
   id: uuid
 };
 var timeout = false;
 
 $(document).ready(function() {
   console.log(uuid);
-  sendData('new')
   $(window).resize(function() {
     rtime = new Date();
     if (timeout === false) {
@@ -43,6 +42,8 @@ $(document).ready(function() {
   submitData();
 })
 
+sendData('new');
+
 // Set a timeout before actualizing screen size
 function resizeend() {
   if (new Date() - rtime < delta) {
@@ -59,8 +60,8 @@ function screenResolution() {
   actualHeight = $(window).height();
   acutalWidth = $(window).width();
   sendData('resize');
-  originalHeight = $(window).height();
-  oringinalWidth = $(window).width();
+  originalHeight = acutalHeight;
+  oringinalWidth = acutalWidth;
 }
 
 // Detect when user starts typing
@@ -86,28 +87,30 @@ function submitData() {
     }
   });
 }
-submit
+
 function sendData(route) {
+  console.log(req);
   $.ajax({
-    websiteURL: 'localhost:8080/' + route,
+    url: 'http://localhost:8080/' + route,
     type: 'POST',
-    dataType: 'json',
-    data: {
-      websiteURL: req.url,
-      sessionId: req.id,
-      eventType: (req.eventType) ? req.eventType : null,
-      paste: (req.eventType == 'copyAndPaste') ? req.pasted : null,
-      formId: (req.eventType == 'copyAndPaste') ? req.formId : null,
-      resizeFrom: (req.eventType == 'resize') ? {
-        height: originalHeight,
-        width: originalWidth
-      } : null,
-      resizeTo: (req.eventType == 'resize') ? {
-        height: acutalHeight,
-        width: actualWidth
-      } : null,
-      time: (req.eventType == 'timeTaken') ? req.interval : null
-    }
+    dataType: 'application/json',
+    data: JSON.stringify({
+        "websiteURL": req.url,
+        "sessionId": req.id.toString()
+
+      // eventType: (req.eventType) ? req.eventType : null,
+      // paste: (req.eventType == 'copyAndPaste') ? req.pasted : null,
+      // formId: (req.eventType == 'copyAndPaste') ? req.formId : null,
+      // resizeFrom: (req.eventType == 'resize') ? {
+      //   height: originalHeight.toString(),
+      //   width: originalWidth.toString()
+      // } : null,
+      // resizeTo: (req.eventType == 'resize') ? {
+      //   height: acutalHeight.toString(),
+      //   width: actualWidth.toString()
+      // } : null,
+      // time: (req.eventType == 'timeTaken') ? req.interval : null
+    })
   })
   .done(function() {
     console.log("success");
